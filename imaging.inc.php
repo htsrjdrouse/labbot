@@ -27,23 +27,23 @@ if(isset($_POST['snap'])){
 ?>
 <hr>
 <div class="row"><h3>&nbsp;&nbsp;Camera Settings</h3></div>
-<div class="row">
 <form action=<?=$_SERVER['PHP_SELF']?> method=post>
-<div class="col-sm-4">
-<button type="submit" name=createdir value="createdir"  class="btn btn-primary btn-sm">Create directory</button><br>
+<div class="row">
+<div class="col-sm-3">
+<button type="submit" name=createdir value="createdir"  class="btn-sm btn-primary btn-sm">Create directory</button>
 </div>
-<div class="col-sm-4">
-<button type="submit" name=removedir value="removedir"  class="btn btn-danger btn-sm">Remove directory</button><br>
+<div class="col-sm-3">
+<button type="submit" name=removedir value="removedir"  class="btn-sm btn-danger btn-sm">Remove directory</button>
 </div>
 </div>
 <div class="row">
 <div class="col-sm-5"><br>
-<button type="submit" name=opendir value="opendir"  class="btn btn-success btn-sm">Open directory</button><br>
+<button type="submit" name=opendir value="opendir"  class="btn-sm btn-success btn-sm">Open directory</button><br>
 </div>
-<div class="col-sm-5"><br>
+<div class="col-sm-5">
 <? if (isset($_SESSION['labbot3d']['imgdir'])){ ?>
-<button type="submit" name=snap value="snap"  class="btn btn-warning btn-sm">Snap pic</button>&nbsp;&nbsp;
-<button type="submit" name=openpic value="openpic"  class="btn btn-success btn-sm">Open pic</button>
+<button type="submit" name=snap value="snap"  class="btn-sm btn-warning btn-sm">Snap pic</button>&nbsp;&nbsp;
+<button type="submit" name=openpic value="openpic"  class="btn-sm btn-success btn-sm">Open pic</button>
 <? } ?>
 </div>
 

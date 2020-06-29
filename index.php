@@ -9,8 +9,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="/bootstrap.min.css">
-  <script src="jquery.min.js"></script>
-  <script src="bootstrap.min.js"></script>
+  <script src="/jquery.min.js"></script>
+  <script src="/bootstrap.min.js"></script>
   <script src="/jquery.min.js" type="text/javascript"></script>
   <script src="/mqttws31.js" type="text/javascript"></script>
 
@@ -111,10 +111,10 @@ if(empty($pids)) { ?>
  <? if(isset($_POST['editmacro'])){$_SESSION['labbot']['view'] = 'editmacro'; } ?>
  <form action=<?=$_SERVER['PHP_SELF']?> method=post>
   <table><tr>
- <td><button type="submit" name=objects class="btn btn-primary">Objects</button>&nbsp;&nbsp;</td>
- <td><button type="submit" name=buildmacro class="btn btn-success">Build Macro</button>&nbsp;&nbsp;</td>
- <td><button type="submit" name=editmacro class="btn btn-warning">Edit/Run Macro</button>&nbsp;&nbsp;</td>
- <td><a class="btn btn-danger" href="logger.php" role="button" name=logger target="new">Logger</button></td>
+ <td><button type="submit" name=objects class="btn-sm btn-primary">Objects</button>&nbsp;&nbsp;</td>
+ <td><button type="submit" name=buildmacro class="btn-sm btn-success">Build Macro</button>&nbsp;&nbsp;</td>
+ <td><button type="submit" name=editmacro class="btn-sm btn-warning">Edit/Run Macro</button>&nbsp;&nbsp;</td>
+ <td><a class="btn-sm btn-danger" href="logger.php" role="button" name=logger target="new">Logger</button></td>
  </tr></table>
  </form>
 <hr>

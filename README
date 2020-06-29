@@ -26,3 +26,13 @@ protocol mqtt
 
 listener 8080
 protocol websockets
+
+
+Here is the sudoers info
+
+sudo chown -R www-data:www-data /var/www
+
+and then I ran sudo visudo and added the following line:
+
+www-data ALL=NOPASSWD: ALL
+

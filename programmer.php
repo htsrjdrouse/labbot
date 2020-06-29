@@ -1,11 +1,15 @@
 <div class="row">
 <h2> Build Macros</h2>
 <br>
+</div>
+<div class="row">
 <form action=program.editor.php method=post>
  <div class="col-sm-12">
  <b>Motion</b><br>
  </div>
- <div class="col-sm-5">
+</div>
+<div class="row">
+ <div class="col-sm-4">
  <? $size=count($_SESSION['labbotjson']['types'][0]); if ($size > 11) { $size = 10;} ?>
  <select class="form-control form-control-sm" name="targetlist" size=<?=$size?>>
 <? foreach($types[0] as $key => &$val){ ?>
@@ -18,8 +22,7 @@
 <? }?>
  </select>
  </div>
-
- <div class="col-sm-3">
+ <div class="col-sm-2">
  Row: <select name=row>
   <? for($i=1;$i<13;$i++){ ?>
   <option value="<?=$i?>"><?=$i?></option>
@@ -34,12 +37,11 @@
  </div>
 
  <div class="col-sm-2"> 
- <button type="submit" name=motionsubmitstep class="btn-xs btn-success">Insert step</button>
+ <button type="submit" name=motionsubmitstep class="btn-sm btn-success">Insert step</button>
  </div>
  <div class="col-sm-2">
- <button type="submit" name=ejectpipettes class="btn-xs btn-warning">Eject pipettes</button>
+ <button type="submit" name=ejectpipettes class="btn-sm btn-warning">Eject pipettes</button>
  </div>
-
 
 </div>
 <div class="row">

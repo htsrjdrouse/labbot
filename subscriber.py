@@ -1,6 +1,6 @@
 import paho.mqtt.client as mqtt 
 import subprocess,re
-import serial,usb
+import serial
 import time,datetime,os
 import numpy as np
 import json
@@ -645,13 +645,13 @@ def on_message(client, userdata, message):
 
 
 ports = whatstheports()
-aser = openport(ports['microfluidics'])
+#aser = openport(ports['microfluidics'])
 dser = openport(ports['duet'])
 dser.write(b'M552 S-1\n')
 dser.write(b'M552 S-1\n')
 dser.write(b'M552 S-1\n')
 
-kit = servoset()
+#kit = servoset()
 #runmacro(dser,aser)
 
 client = establishconnection()
