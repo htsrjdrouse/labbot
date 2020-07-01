@@ -12,7 +12,7 @@
   <script src="/jquery.min.js"></script>
   <script src="/bootstrap.min.js"></script>
   <script src="/jquery.min.js" type="text/javascript"></script>
-  <script src="/mqttws31.js" type="text/javascript"></script>
+  <script src="/mqttws31.min.js" type="text/javascript"></script>
 
 <?php
     if ($_GET["reloaded"] != 1) {
@@ -100,10 +100,9 @@ if(empty($pids)) { ?>
 <? include('microfluidics.inc.php'); ?>
 <? } ?>
 
-
 </ul>
 </div> <!-- end col-md-3-->
-<div class="col-md-4">
+<div class="col-4">
 <h1>LabBot Interface</h1>
  <? if(!($_SESSION['labbot']['view'])){$_SESSION['labbot']['view']='objects';} ?>
  <? if(isset($_POST['objects'])){$_SESSION['labbot']['view'] = 'objects'; }?>
@@ -125,13 +124,11 @@ if(empty($pids)) { ?>
 <? if ($_SESSION['labbot']['view'] == 'logger') {include('logger.inc.php'); }?>
 <? //include('edittargets.php'); ?>
  </div>
-<div class="col-md-4"><br>
+<div class="col-4"><br>
 <? include('target.layout.inc.php');?>
 <br>
 <? include('imaging.inc.php');?>
-
 </div>
-
 </div> <!-- row -->
 </body>
 

@@ -1,5 +1,5 @@
    <script type="text/javascript">
-   var client = new Messaging.Client("<?=$_SERVER['SERVER_ADDR']?>", 8080, "myclientid_" + parseInt(Math.random() * 100, 10));
+   var client = new Paho.MQTT.Client("<?=$_SERVER['SERVER_ADDR']?>", 8080, "myclientid_" + parseInt(Math.random() * 100, 10));
     client.onConnectionLost = function (responseObject) {
      alert("connection lost: " + responseObject.errorMessage);
    };

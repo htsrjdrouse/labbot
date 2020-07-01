@@ -439,13 +439,14 @@ def leveldisplay(aser,cmd):
 def getposition(dser):
  dser.write(b'M114\n')
  pos = dser.readlines()
+ #[b'ok C: X:0.0000 Y:0.0000 Z:0.0000 E:0.000 \r\n']
  #pos = dser.readlines().decode()
  #['X:0.000 Y:0.000 Z:0.000 E:0.000 E0:0.0 E1:0.0 E2:0.0 E3:0.0 E4:0.0 E5:0.0 E6:0.0 E7:0.0 E8:0.0 Count 0 0 0 Machine 0.000 0.000 0.000 Bed comp 0.000\n', b'ok\n']
  lbpos = {}
  for i in pos:
      i = i.decode()
-     if re.match('^X:.*Y:.*Z:.*E.*', i):
-         bb = re.match('^X:(.*) Y:(.*) Z:(.*) E:(.*) E0.*', i)
+     if re.match('^.*X:.*Y:.*Z:.*E.*', i):
+         bb = re.match('^.*X:(.*) Y:(.*) Z:(.*) E:(.*) .*', i)
          lbpos['X'] = float(bb.group(1))
          lbpos['Y'] = float(bb.group(2))
          lbpos['Z'] = float(bb.group(3))
@@ -501,9 +502,9 @@ def whatstheports():
  oo = re.split('/dev', output)
  ports = {}
  for i in oo:
-    if re.match('^.*Duet.*', i):
+    if re.match('^.*Smoothieboard.*', i):
         port = re.match('^.*tty(.*) .*', i)
-        ports['duet'] = re.split(' ', port.group(1))[0]
+        ports['smoothie'] = re.split(' ', port.group(1))[0]
     if re.match('^.*Arduino Micro.*', i):
         port = re.match('^.*tty(.*) .*', i)
         ports['microfluidics'] = re.split(' ',port.group(1))[0]
@@ -528,18 +529,6 @@ def openport(prt):
    print("its not connecting")
   return ser
 
-
-def getipaddr(dser):
-   print("this is called")
-   resp = dser.readlines()
-   dser.write(b'M587\n')
-   resp = dser.readlines()
-   rr = {'resp':str(resp[1])}
-   print(resp)
-   duetip = open('duet.ip.json','w')
-   datar = json.dumps(rr, sort_keys=True)
-   duetip.write(datar)
-   duetip.close()
 
 
 ## mqtt message handler ##
@@ -645,11 +634,9 @@ def on_message(client, userdata, message):
 
 
 ports = whatstheports()
+print(ports)
 #aser = openport(ports['microfluidics'])
-dser = openport(ports['duet'])
-dser.write(b'M552 S-1\n')
-dser.write(b'M552 S-1\n')
-dser.write(b'M552 S-1\n')
+dser = openport(ports['smoothie'])
 
 #kit = servoset()
 #runmacro(dser,aser)
